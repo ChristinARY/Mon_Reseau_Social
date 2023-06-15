@@ -1,0 +1,134 @@
+{% extends 'akue/base_2.html' %}
+
+
+{% block devinettes %}
+
+{% if user.is_authenticated %}
+
+
+
+<!-- ======= devinettes IA Section ======= -->
+
+
+
+
+
+<!-- End About Section -->
+
+
+<!-- ======= profil Section ======= -->
+
+
+
+
+
+<!-- End About Section -->
+
+
+
+
+
+
+
+
+
+
+
+<style>
+  /* Style pour le survol */
+  .nav-link:hover {
+      background-color: #DEE0E3;
+  }
+</style>
+
+
+<div>
+  <div>
+    <section >
+
+      <div style="background-color: #F0F2F5; "  class="container-fluid ">
+        <div class="row d-flex mb-3  ">
+          <!-- Colonne pour la barre de navigation -->
+          <div class="sidebar d-flex " >
+  
+            <!-- ======= Insertion de la Navigation latérale ======= -->
+
+          {% include 'akue/navLateral.html' %}
+  
+  
+  
+            <div class=" col-md-10 pr-0 pl-0">
+              <div class="row d-flex justify-content-center">
+      
+      
+                <div class="col-md-7 align-items-center justify-content-center mt-1" >
+                  <div class=" justify-content-center" style="overflow:scroll; height:600px;" >
+                    <div class="card mb-2 shadow-lg">
+                      <div class="card-body text-center">
+
+
+
+                        {% include 'akue/listIA.html' %}
+
+
+
+
+
+
+                        
+                              <div class="card-body">
+                                  <h3 class="mb-4" style="color: #7746ea;"><p class=" font-italic me-1 align-self-center"  >IA devinettes</p></h3>
+                                  <div>
+                                    <form method="post" action="{% url 'akue:devinettes' %}">
+                                      {% csrf_token %}
+                                      <!--<label for="prompt" style="color: #7746ea;">Saisir un message :</label>-->
+                                      <input class="border border-info form-control" type="text" name="prompt" required placeholder="Quel est le sujet de la devinette ?">
+                                    
+                                      <button  type="submit" class="btn btn-outline-info ms-1 rounded mt-3 mb-3">Générer</button>
+                                    </form>
+                                  
+                                    {% if riddle %}
+                                      <p style="color: #7746ea;">Voici votre devinette : </p>
+                                      <p  class="about-text" style="color: #7746ea;"><strong style="font-weight: extra bold;">
+                                        <!--<i class="bi bi-robot" ></i> -->
+                                        {% load static %}
+                                      <img src="{% static 'akue/img/icon/chatbot.png' %}" alt="" class="border-0 me-2 " style="height: 40px" /> : </strong>{{ riddle }}</p>
+                                    {% endif %}
+                                      
+                                  </div>
+                              </div>
+                        
+                      
+                
+                      </div>
+                    </div>
+                  </div>
+                </div>
+      
+              </div>
+      
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    </section>
+    <!--Section: Newsfeed-->
+  </div>
+
+</div>
+
+
+
+<!-- End listvideo Section -->
+
+
+
+    {% else %}
+
+
+    {% endif %}
+
+
+{% endblock %}

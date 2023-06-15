@@ -1,0 +1,47 @@
+
+
+
+
+
+<div class="form-outline">
+    <div class="nav-link btn btn-sm border-0 me-2 " data-toggle="modal" data-target="#videoForme">
+      {% load static %}
+      <!--<i class="bi bi-camera-video" style="color:#38C7B4;"></i><span style="color:#38C7B4;"> </span>--><img class="ml-2 mr-2" src="{% static 'akue/img/icon/video.jpeg' %}" alt="" class="border-0  me-2" style="height: 30px" /><!--<i class="bi bi-image" style="color:#38C7B4;"></i>--><span class="d-none d-md-inline-block"> </span>
+    </div>
+    <form method="post" action="{% url 'akue:creer_video' %}"  enctype="multipart/form-data">
+      {% csrf_token %}
+      <!-- Modal -->
+      <div class="modal fade" id="videoForme" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">{{user.username }} Publier votre video</h5>
+              <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>-->
+            </div>
+          <div class="modal-body">
+            
+            <div >
+              <div class="form-group">
+                <label class="modal-title"  for="{{ form.content.id_for_label }}">Ajouter un commentaire</label>
+                {{ form.content }}
+              </div>
+              <div  class="form-group">
+                <label class="modal-title"  for="{{ form.video.id_for_label }}">Selectionner votre video:</label>
+                <input type="file" name="video" id="{{ form.video.id_for_label }}" accept="video/*" />
+
+              </div>
+            </div>
+            
+          </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                <button type="submit" class="btn btn-info">Publier</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </form>
+  </div>

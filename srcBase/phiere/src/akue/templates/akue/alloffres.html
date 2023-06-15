@@ -1,0 +1,306 @@
+{% extends 'akue/base_2.html' %}
+
+
+{% block alloffres %}
+
+{% if user.is_authenticated %}
+
+<!-- ======= offres Section ======= -->
+
+
+
+
+<style>
+  /* Style pour le survol */
+  .nav-link:hover {
+      background-color: #DEE0E3;
+  }
+</style>
+
+
+
+
+<div>
+    <div>
+    <section >
+
+    <div style="background-color: #F0F2F5; "  class="container-fluid ">
+      
+      <div class="row d-flex mb-3  ">
+      
+
+        <!-- Colonne pour la barre de navigation -->
+        <div class="sidebar d-flex " >
+        <div class="" style="overflow:scroll; ">
+          <!-- ======= Insertion de la Navigation latérale ======= -->
+
+          {% include 'akue/navLateral_.html' %}
+
+
+
+
+
+        <div class="d-none d-md-block align-items-center justify-content-center mt-1  shadow" >
+          <div class="card-body text-center" style= "background-color: #F0F2F5;">
+    
+            <div  class="mt-3 pt-3 pb-3 rounded">
+              <div id="carbonads" class="">
+                <span >
+                  <span class="carbon-wrap">
+                    <a href="" class="carbon-img" target="" rel="">
+                      {% if dernier_offre.image %}
+                        {% load static %}
+                        <img class="rounded" src="{{ dernier_offre.image.url }}" alt="{{ dernier_offre.title }}" border="0" height="100" width="130" style="max-width: 130px;">
+                      {% else %}
+                      {% endif %}
+                      
+                    </a>
+                    <a href="" class="carbon-text" target="" rel=""  style="color:black">{{ dernier_offre.content }}</a>
+                    <a href="" class="carbon-text" target="" rel=""  ><small>{{ dernier_offre.author }}</small></a>
+                  </span>
+                
+                </span>
+              </div>
+            </div>
+
+            
+          </div>
+        </div>
+        
+
+
+          
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+      
+
+
+        <!-- Colonne pour la barre de navigation -->
+
+
+
+
+      <!--style="background-color: #eee;"-->
+      <div class=" col-md-10 pr-0 pl-0">
+
+      <div class="row d-flex justify-content-center">
+
+      
+
+
+
+        
+
+      <!--------------------------------------- Bloc conteneur ---------------------------------------->
+
+
+
+
+
+        
+      <!-- <div class="col-2 ms-2 d-none d-md-block align-items-center justify-content-center mt-1" style="overflow:scroll; height:600px;">
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------->
+
+
+<div class="col-md-7 align-items-center justify-content-center mt-1" >
+  <div class=" justify-content-center" style="overflow:scroll; height:600px;" >
+    <div class="card mb-2 shadow-lg">
+      <div class="card-body text-center">
+        <div>
+        
+          {% include 'akue/creerPost.html' %}
+        
+
+        </div>
+    </div>
+  </div>
+  <div class ="">
+
+
+      {% include 'akue/listeOffre.html' %}
+
+      
+  </div>
+</div>
+
+
+
+        <!--------------------------------------------------------------------------------------------------------------------------------------------------->
+        <!--Troixieme bloc -->
+    <!--------------------------------------- Bloc conteneur ---------------------------------------->
+
+    </div>
+
+  <div class="col-4 ms-2 d-none d-md-block align-items-center justify-content-center mt-1" style="overflow:scroll; height:595px;">
+
+    <div class="  " >
+      <div class="card-body text-center mb-5" style= "background-color: #F0F2F5;">
+
+        <div  class="mt-3 pt-3 pb-3 shadow rounded">
+          <div id="carbonads" class="">
+            <span >
+              <span class="carbon-wrap">
+                <a href="" class="carbon-img" target="" rel="">
+                  {% if dernier_service.image %}
+                    {% load static %}
+                    <img class="rounded" src="{{ dernier_service.image.url }}" alt="{{ dernier_service.title }}" border="0" height="100" width="130" style="max-width: 130px;">
+                  {% else %}
+                  {% endif %}
+                  
+                </a>
+                <a href="" class="carbon-text" target="" rel=""  style="color:black">{{ dernier_service.content }}</a>
+                <a href="" class="carbon-text" target="" rel=""  ><small>{{ dernier_service.author }}</small></a>
+              </span>
+            
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+
+
+
+      <div class="sidebar-sticky mt-5">
+        <ul class="nav flex-column">
+            <!-- Icône pour le lien 1 -->
+            <li class="nav-item">
+              <a class="nav-link d-flex mb-3 rounded" href="#" >
+                  <!--<i class="bi bi-play-circle-fill" style="color: #186CCC;"></i> -->
+                  {% load static %}
+                  <img src="{% static 'akue/img/icon/etoiles.png' %}" alt="" class="border-0 me-2" style="height: 30px" /> 
+                  <span class="d-none d-md-block" style="color: black"> Decouvrer les nouveautés </span>
+              </a>
+            </li>
+            
+            <!-- Icône pour le lien 2 -->
+            <li class="nav-item">
+                <a class="nav-link d-flex mb-3 rounded" href="#" >
+                    <!--<i class="bi bi-play-circle-fill" style="color: #186CCC;"></i> -->
+                    {% load static %}
+                    <img src="{% static 'akue/img/icon/equipe.png' %}" alt="" class="border-0 me-2" style="height: 30px" /> 
+                    <span class="d-none d-md-block" style="color: black"> Composer votre équipe </span>
+                </a>
+            </li>
+            <!-- Icône pour le lien 3 -->
+            <li class="nav-item">
+                <a class="nav-link d-flex mb-3 rounded" href="#" >
+                    <!--<i class="fa fa-briefcase" style="color: #FF0100;"></i>-->
+                    {% load static %}
+                    <img src="{% static 'akue/img/icon/ux.png' %}" alt="" class="border-0 me-2" style="height: 30px" /> 
+                    <span class="d-none d-md-block" style="color: black"> Description des postes</span>
+                </a>
+            </li>
+            <!-- Icône pour le lien 3 -->
+            <li class="nav-item">
+              <a class="nav-link d-flex mb-3 rounded" href="{% url 'akue:chatBot' %}" >
+                  <!--<i class="bi bi-robot" style="color: #186CCC;"></i> -->
+                  {% load static %}
+                    <img src="{% static 'akue/img/icon/benefices.png' %}" alt="" class="border-0 me-2" style="height: 30px" /> 
+                  <span class="d-none d-md-block" style="color: black"> Ameliorer vos revenues</span>
+              </a>
+          </li>
+          <!-- Icône pour le lien 2 -->
+          <li class="nav-item">
+            <a class="nav-link active d-flex mb-3 rounded" href="#" >
+                <!--<i class="fa fa-home" style="color: #0068E4;"></i> -->
+                {% load static %}
+                <img src="{% static 'akue/img/icon/carte.png' %}" alt="" class="border-0 me-2" style="height: 30px" /> 
+                <span class="d-none d-md-block" style="color: black"> Liste des adresses</span>
+            </a>
+          </li>
+        <!-- Icône pour le lien 3 -->
+        <li class="nav-item">
+            <a class="nav-link d-flex mb-3 rounded" href="#" >
+                <!--<i class="fa fa-briefcase" style="color: #FF0100;"></i>-->
+                {% load static %}
+                <img src="{% static 'akue/img/icon/reseau.png' %}" alt="" class="border-0 me-2" style="height: 30px" /> 
+                <span class="d-none d-md-block" style="color: black"> Améliorer votre réseau</span>
+            </a>
+        </li>
+        <!-- Icône pour le lien 3 -->
+        <li class="nav-item">
+          <a class="nav-link d-flex mb-3 rounded" href="{% url 'akue:chatBot' %}" >
+              <!--<i class="bi bi-robot" style="color: #186CCC;"></i> -->
+              {% load static %}
+                <img src="{% static 'akue/img/icon/donnees.png' %}" alt="" class="border-0 me-2" style="height: 30px" /> 
+              <span class="d-none d-md-block" style="color: black"> Analyser vos données</span>
+          </a>
+        </li>
+        </ul>
+    </div>
+
+
+      
+    </div>
+
+
+    </div>
+
+
+    
+
+  </div>
+</div>
+</div>
+    </div>
+    
+    </section>
+    <!--Section: Newsfeed-->
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+  </div>
+
+
+
+<!-- End acceuil Section -->
+
+
+{% else %}
+
+
+    <div class="col-md-12">
+        <h3 class="section-title">Fil d'actualité</h3>
+        <div class="section-title-divider"></div>
+        <p class="section-description"> Vous devez vous connecter ou creer un compte pour acceder à cette page</p>
+    </div>
+
+
+
+
+{% endif %}
+
+
+{% endblock %}

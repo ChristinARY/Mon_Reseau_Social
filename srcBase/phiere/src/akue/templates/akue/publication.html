@@ -1,0 +1,88 @@
+
+
+
+
+
+  <div class="form-outline">
+    <div class="input-group">
+      <input class=" nav-link2 border border-info form-control " data-toggle="modal" data-target="#publicationForme" placeholder="Quoi de neuf {{user.username }}">
+      <div class="input-group-append nav-link2">
+        <span class="input-group-text border-info border-left-0" style=" background-color: #FFF;" data-toggle="modal" data-target="#publicationImgForme">
+          {% load static %}
+          <img src="{% static 'akue/img/icon/photo.png' %}" alt="" class="border-0  me-2" style="height: 23px" /><!--<i class="bi bi-camera-video" style="color:#38C7B4;"></i>-->
+        </span>
+      </div>
+    </div>
+    <form method="post" action="{% url 'akue:creer_publication' %}"  enctype="multipart/form-data">
+      {% csrf_token %}
+      <!-- Modal -->
+      <div class="modal fade" id="publicationForme" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Quoi de neuf {{user.username }}</h5>
+              <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>-->
+            </div>
+          <div class="modal-body">
+            
+            <div >
+              <div class="form-group">
+                <label class="modal-title"  for="{{ form.content.id_for_label }}">Partager une publication</label>
+                {{ form.content }}
+              </div>
+              
+            </div>
+            
+          </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                <button type="submit" class="btn btn-info">Publier</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </form>
+
+
+
+    <form method="post" action="{% url 'akue:creer_publication' %}"  enctype="multipart/form-data">
+      {% csrf_token %}
+      <!-- Modal -->
+      <div class="modal fade" id="publicationImgForme" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Quoi de neuf {{user.username }}</h5>
+              <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>-->
+            </div>
+          <div class="modal-body">
+            
+            <div >
+              <div class="form-group">
+                <label class="modal-title"  for="{{ form.content.id_for_label }}">Partager une publication</label>
+                {{ form.content }}
+              </div>
+              <div  class="form-group">
+                <label class="modal-title"  for="{{ form.image.id_for_label }}">Ajouter une Image:</label>
+                {{ form.image }}
+              </div>
+            </div>
+            
+          </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                <button type="submit" class="btn btn-info">Publier</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </form>
+
+
+  </div>

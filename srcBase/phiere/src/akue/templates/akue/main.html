@@ -1,0 +1,119 @@
+{% block main %}
+
+<main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about">
+      <div class="container" data-aos="fade-up">
+        <div class="row">
+          <div class="col-md-12">
+            <h3 class="section-title">À propos de nous</h3>
+            <div class="section-title-divider"></div>
+            <p class="section-description">AGK & Co à pour but de valoriser un modèle pérenne alliant performance, responsabilité et utilité à tous le monde sans exception. Pour cela , nous sommes structurée autour de cinq piliers : l'offre de jeux, le modèle responsable, l'engagement sociétal, l'ancrage territorial et la durabilité. Ainsi, nous espérons ouvrir de nouvelle possibilité afin de doter les sociétés d'une raison d'être. Cette décision de formuler une raison d'être est naturelle pour FDJ au regard de ses engagements sociétaux et solidaires depuis notre création.</p>
+          </div>
+        </div>
+      </div>
+      <div class="container about-container" data-aos="fade-up" data-aos-delay="200">
+        <div class="row">
+    
+          <div class="col-lg-6 about-img">
+            {% load static %}
+            <img class="img-responsive" src="{% static 'akue/img/about-img.jpg' %}" alt="">
+          </div>
+    
+          <div class="col-md-6 about-content">
+            <h2 class="about-title">Contribué au bonheur des personnes </h2>
+            <p class="about-text">
+              Afin de promouvoir une pratique récréative du jeu d'argent, nous plaçons au coeur de nos préoccupations l'accompagnement de nos clients, l'intégrité de nos jeux et la réduction des risques et des conséquences liés à notre activité. Ainsi nous agissons pour prévenir les comportements d'addiction et le jeu des mineurs. Héritiers de la loterie nationale créée pour venir en aide aux blessés de la Première Guerre Mondiale, nous perpétuons nos actions sociétales et solidaires et notre participation au financement de l'intérêt général. Partenaires majeurs du commerce de proximité, nous rendons nos jeux et services accessibles au plus grand nombre, grâce à un réseau de commerçants présent sur tous les territoires. Forts de l'engagement de nos collaborateurs et de notre capacité d'innovation, notre ambition est de poursuivre notre développement dans le cadre d'un modèle responsable et utile à la société et d'un dialogue étroit avec nos parties prenantes."
+            </p>
+            
+          </div>
+        </div>
+      </div>
+    </section><!-- End About Section -->
+    
+    
+    
+    
+        
+    
+      <!-- ======= Services Section ======= -->
+      <section id="services">
+        <div class="container">
+          
+          <div class="row" data-aos="fade-up">
+            <div class="col-md-12">
+              <h3 class="section-title">Nos Jeux</h3>
+              <div class="section-title-divider"></div>
+              <p class="section-description">Dans l'ensemble, nos jeux permettent de répartir aux hasard des lots à des gagnants désignés par le sort, la chance, la fortune, le coup de bol quoi !</p>
+            </div>
+          </div>
+          
+    
+          
+          <div class="row" data-aos="fade-up" data-aos-delay="200">
+    
+            
+            <div class="col-lg-4 col-md-6 service-item">
+              <a href="{% url 'akue:game' %}"><div class="service-icon"><i class="bi bi-briefcase"></i></div></a>
+              <h4 class="service-title"><a href="{% url 'akue:game' %}">Jeux Tombola</a></h4>
+              <p class="service-description">La Tombola est un jeu de hasard qui se joue avec différentes personnes et 90 boules numérotées.
+
+                L’objectif du jeu est de remplir les numéros du carton selon le tirage des boules et essayer d’être le premier à compléter tout le carton (tombola).</p>
+            </div>
+    
+    
+    
+            <div class="col-lg-4 col-md-6 service-item">
+              <a href="{% url 'akue:game' %}"><div class="service-icon"><i class="bi bi-card-checklist"></i></div></a>
+              <h4 class="service-title"><a href="{% url 'akue:game' %}">Jeux concours</a></h4>
+              <p class="service-description">En repondant à quelques questions ou en envoyant juste votre participation, vous pouvez gagner des cadeaux de reves. AGB&Co et ses partenaires vous proposent de gagner des lots, des sejours, des bijoux etc.</p>
+            </div>
+    
+    
+    
+            <div class="col-lg-4 col-md-6 service-item">
+              <a href="{% url 'akue:jeux' %}"><div class="service-icon"><i class="bi bi-bar-chart"></i></div></a>
+              <h4 class="service-title"><a href="{% url 'akue:jeux' %}"> Jeux de tirage.</a></h4>
+              <p class="service-description">Dans ce jeux, le joueur, en misant une somme d’argent, essaie de trouver quels seront les numéros gagnants qui sont tirés au hasard. Pour cela, le joueur coche/sélectionne dans une grille un ou plusieurs numéros.</p>
+            </div>
+    
+    
+    
+            <div class="col-lg-4 col-md-6 service-item">
+              <a href="{% url 'akue:jeux' %}"><div class="service-icon"><i class="bi bi-binoculars"></i></div></a>
+              <h4 class="service-title"><a href="{% url 'akue:jeux' %}">AGBANKAN</a></h4>
+              <p class="service-description">Dans ce jeux, cliquez sur les 16 cases contenant chacune un symbole « point d’interrogation » pour découvrir le code gagnants et les gains associés à chaque ligne.m</p>
+            </div>
+    
+    
+    
+            <div class="col-lg-4 col-md-6 service-item">
+              <a href="{% url 'akue:jeux' %}"><div class="service-icon"><i class="bi bi-brightness-high"></i></div></a>
+              <h4 class="service-title"><a href="{% url 'akue:jeux' %}">AKUE</a></h4>
+              <p class="service-description">Dans ce jeux, cliquez sur les 6 cases contenant chacune un symbole « point d’interrogation » pour découvrir le si un de vos numéros correspond à l'un des numéros gagnants et si c'est le cas, vous remportez la somme associée</p>
+            </div>
+    
+    
+    
+            <div class="col-lg-4 col-md-6 service-item">
+              <a href="{% url 'akue:jeux' %}"><div class="service-icon"><i class="bi bi-calendar4-week"></i></div></a>
+              <h4 class="service-title"><a href="{% url 'akue:jeux' %}">Pair ou Impair</a></h4>
+              <p class="service-description">Dans ce jeux, toutes les cases contiennent chacune un symbole « point d’interrogation ». Chaque joueur choisit son camp (pair ou impair). A chaque tour, le joueur clique sur la case contenant le symbole « point d’interrogation » pour découvrir si c'est un nombre pair ou impair et il remporte la somme associée en fonction de ce qu'il avait choisi.  </p>
+            </div>
+    
+    
+    
+          </div>
+        </div>
+      </section><!-- End Services Section -->
+    
+      
+    
+      
+    
+      
+    
+    </main><!-- End #main -->
+
+    {% endblock %}

@@ -1,0 +1,178 @@
+{% extends 'akue/base_2.html' %}
+
+
+{% block enregistrement %}
+
+
+    <!-- =======  enregistrement Section ======= -->
+    
+
+                <section class="vh-100">
+                  <div class="container py-5 h-100">
+                    <div class="row d-flex justify-content-center align-items-center h-100">
+                      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                        <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                          <div class="card-body p-5 text-center">
+                
+                            <h2 class="mb-">Creer votre compte</h2>
+
+                            <form method="post">
+                              {% csrf_token %}
+                              {% for field in form %}
+                              <div class="form-outline mb-4">
+                                <p>
+                                <div class="form-label" > {{ field.label_tag }}<br></div>
+                                  <div class="form-control form-control-lg" style = "border-width : 0px">{{ field }}</div>
+                                  
+                                  {% for error in field.errors %}
+                                    <p style="color: red">{{ error }}</p>
+                                  {% endfor %}
+                                </p>
+                              </div>
+                              {% endfor %}
+                              <p >8 caractères minimum</p>
+                              <button class="btn btn-info btn-lg btn-block" type="submit">Enregister</button>
+                            </form>
+
+                            <h4 class="mt-5"><a href="/akue/connexion" class="dropdown-item"><i class="fa fa-user-o" style="color: #3B5998;"></i> <span style="color: #3B5998;">Deja un compte ? <br> Connecter vous !</span></a></h4>
+
+
+
+
+
+
+
+
+
+
+
+                            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+                           
+                
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+                <div>
+
+                </div>
+                
+                <div>
+
+                </div>
+                <div class="container" data-aos="fade-up">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <h3 class="section-title"></h3>
+                        <div ></div>
+                        
+                      </div>
+                    </div>
+                  </div>
+                  <div class="container" data-aos="fade-up">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <h3 class="section-title"></h3>
+                        <div ></div>
+                        
+                      </div>
+                    </div>
+                  </div>
+                  <div class="container" data-aos="fade-up">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <h3 class="section-title"></h3>
+                        <div ></div>
+                        
+                      </div>
+                    </div>
+                  </div>
+                  <div class="container" data-aos="fade-up">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <h3 class="section-title"></h3>
+                        <div ></div>
+                        
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="container" data-aos="fade-up">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <h3 class="section-title"></h3>
+                        <div ></div>
+                        
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="container" data-aos="fade-up">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <h3 class="section-title"></h3>
+                        <div ></div>
+                        
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="container" data-aos="fade-up">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <h3 class="section-title"></h3>
+                        <div ></div>
+                        
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="container" data-aos="fade-up">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <h3 class="section-title"></h3>
+                        <div ></div>
+                        
+                      </div>
+                    </div>
+                  </div>
+
+
+             <!-- End About Section -->
+
+
+
+
+
+
+      
+
+
+{% endblock %}

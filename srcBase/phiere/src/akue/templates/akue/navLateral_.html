@@ -1,0 +1,69 @@
+<style>
+    /* Style pour le survol */
+    .nav-link:hover {
+        background-color: #E5E7E9;
+    }
+  </style>
+
+
+<div class="sidebar-sticky " style="">
+          
+    <ul class="nav flex-column">
+        <!-- Icône pour le lien 1 -->
+        <li class="nav-item ">
+            <a class="nav-link active d-flex mb-3 rounded" href="/" >
+                <!--<i class="fa fa-home" style="color: #0068E4;"></i> -->
+                {% load static %}
+                <img src="{% static 'akue/img/icon/accueil.png' %}" alt="" class="border rounded-circle me-2" style="height: 30px" /> 
+                <span class="d-none d-md-block" style="color: black"> Actualité </span>
+            </a>
+        </li>
+        <!-- Icône pour le lien 2 -->
+        <li class="nav-item">
+            <a class="nav-link d-flex mb-3 rounded" href="{% url 'akue:listvideo' %}" >
+                <!--<i class="bi bi-play-circle-fill" style="color: #186CCC;"></i> -->
+                {% load static %}
+                <img src="{% static 'akue/img/icon/video.png' %}" alt="" class="border me-2" style="height: 30px" /> 
+                <span class="d-none d-md-block" style="color: black"> Mes Videos</span>
+            </a>
+        </li>
+        <!-- Icône pour le lien 3 -->
+        <li class="nav-item">
+            <a class="nav-link d-flex mb-3 rounded" href="{% url 'akue:alloffres' %}" >
+                <!--<i class="fa fa-briefcase" style="color: #FF0100;"></i>-->
+                {% load static %}
+                <img src="{% static 'akue/img/icon/offre.png' %}" alt="" class="border rounded-circle me-2" style="height: 30px" /> 
+                <span class="d-none d-md-block" style="color: black"> Les Offres</span>
+            </a>
+        </li>
+        <!-- Icône pour le lien 3 -->
+        <li class="nav-item">
+          <a class="nav-link d-flex mb-3 rounded" href="{% url 'akue:allservices' %}" >
+              <!--<i class="fa fa-briefcase" style="color: #FF0100;"></i>-->
+              {% load static %}
+              <img src="{% static 'akue/img/icon/services.png' %}" alt="" class="border rounded-circle me-2" style="height: 30px" /> 
+              <span class="d-none d-md-block" style="color: black"> Les Services</span>
+          </a>
+      </li>
+        
+        
+        <!-- Icône pour le lien 3 -->
+        <li class="nav-item">
+          <a class="nav-link d-flex mb-3 rounded" href="{% url 'akue:chatBot' %}" >
+              <!--<i class="bi bi-robot" style="color: #186CCC;"></i> -->
+              {% load static %}
+                <img src="{% static 'akue/img/icon/chatbot.png' %}" alt="" class="border-0 me-2" style="height: 30px" /> 
+              <span class="d-none d-md-block" style="color: black"> ChatBot</span>
+          </a>
+      </li>
+      <!-- Icône pour le lien 3 -->
+      <li class="nav-item">
+        <a class="nav-link d-flex mb-3 rounded" href="{% url 'akue:jeux' %}" >
+            <!--<i class="bi bi-robot" style="color: #186CCC;"></i> -->
+            {% load static %}
+            <img src="{% static 'akue/img/icon/cadeau.png' %}" alt="" class="border-0 me-2" style="height: 30px" /> 
+            <span class="d-none d-md-block" style="color: black">Jouer</span>
+        </a>
+    </li>
+    </ul>
+</div>

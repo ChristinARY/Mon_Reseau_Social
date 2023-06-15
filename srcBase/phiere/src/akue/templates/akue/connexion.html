@@ -1,0 +1,38 @@
+{% extends 'akue/base_2.html' %}
+
+
+{% block connexion %}
+
+
+    <!-- =======Connexion Section ======= -->
+
+                <section class="vh-100">
+                  <div class="container py-5 h-100">
+                    <div class="row d-flex justify-content-center align-items-center h-100">
+                      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                        <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                          <div class="card-body p-5 text-center">
+                
+                            <h3 class="mb-5">Connexion</h3>
+                
+                            <p style="color: red">{{ msg }}</p>
+                            <form method="post">
+                              {% csrf_token %}
+                              <div  >
+                              {{ form.as_p }}
+                            </div>
+                              <button class="btn btn-info btn-lg btn-block" type="submit" class="btn btn-primary">Se connecter</button>
+                            </form>
+                            <h4 class="mt-5"><a href="/akue/enregistrement" class="dropdown-item"><i class="fa fa-user-o" style="color: #3B5998;"></i> <span style="color: #3B5998;">Nouveau creer votre compte</span></a></h4>
+                            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+<!-- End Connexion Section -->
+
+
+{% endblock %}

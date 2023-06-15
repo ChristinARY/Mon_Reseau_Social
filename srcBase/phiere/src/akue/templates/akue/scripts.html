@@ -1,0 +1,33 @@
+{% block scripts1 %}
+                            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                            <script>
+                              $(document).ready(function() {
+                                // Sélectionne le bouton "choisir un fichier"
+                                var input = $("input[type='file']");
+                                // Sélectionne l'étiquette de bouton personnalisée
+                                var label = $("label[for='" + input.attr('id') + "']");
+    
+                                 // Ajoute un gestionnaire d'événements pour l'entrée de fichier
+                                input.change(function() {
+                                if (this.files && this.files[0]) {
+                                  var file = this.files[0];
+                                  var reader = new FileReader();
+                                  reader.onload = function(e) {
+                                  label.text(file.name);
+                                    }
+                                    reader.readAsDataURL(file);
+                                    } else {
+                                  label.text('Aucune image sélectionnée');
+                                    }
+                                  });
+  
+                                    // Modifie le texte de l'étiquette de bouton personnalisée
+                                  label.text('Ajouter une image');
+                                  // Ajoute la classe à l'étiquette de bouton personnalisée
+                                  label.addClass('btn btn-outline-secondary');
+                                  // Masque le bouton "choisir un fichier"
+                                  input.css('display', 'none');
+                                  });
+  
+                                  </script>
+                                {% endblock %}

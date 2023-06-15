@@ -1,0 +1,142 @@
+<!-- ======= Header ======= -->
+
+
+
+
+<!--<header id="header" class="d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+      {% load static %}
+
+      <a href="/" class="logo mr-auto"><img class="img-responsive" src="{% static 'akue/img/logo.png' %}"  alt=""></a>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="/">Acceuil</a></li>
+          <li><a class="nav-link scrollto" href="/akue/acceuil">Notre Reseau</a></li>
+          <li><a class="nav-link scrollto" href="/#about">Info</a></li>
+          <li><a class="nav-link scrollto" href="/#services">Choix de Jeux</a></li><li class="dropdown">
+          
+          <li><a class="nav-link scrollto" href="/akue/chatBot">Espace IA</a></li><li class="dropdown">
+          <li><a class="nav-link scrollto" href="/akue/pageTest">Page Test</a></li><li class="dropdown">
+            {% if user.is_authenticated %}
+            <li><a class="nav-link scrollto text-success" href="/akue/myProfil">Hi {{ user.username }}!</a></li><li class="dropdown">
+              
+            <li><a class="nav-link scrollto text-success"   href="{% url 'akue:deconnexion' %}">deconnexion</a></li>
+
+            {% else %}
+            
+            <li><a class="nav-link scrollto text-success" href="/akue/connexion">Se connecter </a></li><li class="dropdown">
+              
+            <li><a class="nav-link scrollto text-success"   href="/akue/enregistrement">Creer un compte</a></li>
+        </ul>
+            
+            {% endif %}
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+
+
+      
+
+    </div>
+
+    
+    
+  </header>--><!-- End Header -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header >
+	<div>
+		<div >
+			<nav class="navbar navbar-expand-xl navbar-white bg-white shadow">
+				<!--<a href="#" class="navbar-brand"><i class="fa fa-cube"></i>WANKADA<b>TECH</b></a>-->
+				{% load static %}	
+				<a href="/" class=""><img class="img-responsive" src="{% static 'akue/img/logo.png' %}"  alt=""></a>
+				<button type="button" class=" navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse" style="background-color: #F0F2F5;">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<!-- Collection of nav links, forms, and other content for toggling -->
+				{% if user.is_authenticated %}
+				<div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">		
+					<form class="navbar-form form-inline">
+						<div class="input-group search-box " >								
+							<input style="background-color: #DBE7F2;" type="text" id="search" class="form-control " placeholder="Recherche...">
+							<span class="input-group-addon"><i class="material-icons">&#xE8B6;</i></span>
+						</div>
+					</form>
+					<div class="navbar-nav ml-auto">
+						
+						<!--<a href="/" class="nav-item nav-link "><i class="fa fa-home"></i><span>Acceuil</span></a>-->
+						<!--<a href="#" class="nav-item nav-link"><i class="fa fa-gears"></i><span>Projects</span></a>
+						<a href="#" class="nav-item nav-link"><i class="fa fa-users"></i><span>Team</span></a>
+						<a href="#" class="nav-item nav-link"><i class="fa fa-pie-chart"></i><span>Reports</span></a>-->
+						<!--<a href="{% url 'akue:chatBot' %}" class="nav-item nav-link"><i class="bi bi-robot"></i><span>Espace IA</span></a>-->
+						<a href="#" class="nav-item nav-link rounded"><i class="fa fa-comment"></i><!--<span>Messages</span>
+							{% load static %}
+                			<img src="{% static 'akue/img/icon/message.png' %}" alt="" class="border-0 me-2 " style="height: 100%;  />--> 
+						</a>		
+						<a href="#" class="nav-item nav-link rounded"><i class="fa fa-bell"></i><!--<span>Notifications</span>
+							{% load static %}
+							<img src="{% static 'akue/img/icon/notification.png' %}" alt="" class="border-0 me-2 " style="height: 100%;  />--> 
+						</a>
+						{% if user.is_authenticated %}
+							<div class="nav-item dropdown rounded">
+								
+								{% if user_profile.image %}
+                					{% load static %}
+									<a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle user-action rounded"><img src="{{ user_profile.image.url }}" class="avatar" alt="Photo de profil de {{user.username }} "> {{user.username }}<b class="caret"></b></a>
+                				{% else %}
+									<a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle user-action rounded"><img src="{% static 'akue/img/photo_de_profile/photo_defaut.webp' %}" class="avatar" alt="Photo de profil par défaut"> {{user.username }} <b class="caret"></b></a>
+                				{% endif %}
+								<div class="dropdown-menu">
+									<a href="/akue/myProfil" class="dropdown-item nav-item"><i class="fa fa-user-o" style="color: #563d3d;"></i> <span style="color: #563d3d;">Profile</span></a>
+									<!--<a href="#" class="dropdown-item"><i class="fa fa-calendar-o"></i> Calendar</a>-->
+									<a href="#" class="dropdown-item nav-item"><i class="fa fa-sliders" style="color: #563d3d;"></i> <span style="color: #563d3d;">Paramètre</span></a>
+									<div class="divider dropdown-divider"></div>
+									<a href="{% url 'akue:deconnexion' %}" class="dropdown-item nav-item"><i class="material-icons" style="color:#563d3d;">&#xE8AC;</i> <span style="color: #563d3d;">Deconnexion</span></a>
+								</div>
+							</div>
+						{% else %}
+							<div class="nav-item dropdown">
+								<a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle user-action"><img src="{% static 'akue/img/photo_de_profile/photo_defaut.webp' %}" class="avatar" alt="">  Mon Compte <b class="caret"></b></a>
+								
+								<div class="dropdown-menu">
+									<a href="/akue/connexion" class="dropdown-item"><i class="fa fa-user-o" style="color: #563d3d;"></i> <span style="color: #563d3d;">Se connecter</span></a>
+									<a href="/akue/enregistrement" class="dropdown-item"><i class="fa fa-user-o" style="color: #563d3d;"></i> <span style="color: #563d3d;">Creer un compte</span></a>
+								</div>
+							</div>
+            			{% endif %}
+					</div>
+					
+				</div>
+				{% endif %}
+			</nav>
+		</div>
+	</div>
+</header>

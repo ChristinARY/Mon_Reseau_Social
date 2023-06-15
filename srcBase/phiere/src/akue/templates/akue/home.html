@@ -1,0 +1,374 @@
+  <div class="container">
+    <!--<h1>Accueil</h1>-->
+    {% for item in all_items %}
+      <div class="card mb-3">
+        {% if item.image %}
+          <img src="{{ item.image.url }}" class="card-img-top" alt="{{ item.title }}">
+        {% endif %}
+        <div class="card-body">
+          <h2 class="card-title">{{ item.title }}</h2>
+          <p class="card-text">{{ item.contenu }}</p>
+          <div>
+            <a href="" class="text-dark mb-0">
+                <div><strong>{{ item.author  }}  </strong> <small>{{table_nameP}} </small></div>
+            </a>
+            <a href="" class="text-muted d-block" style="margin-top: -6px">
+                <small>{{ item.temps_publication }}</small>
+            </a>
+            </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+
+
+
+
+
+
+  {% if all_items %}
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- ---------------------- Debut boucle Liste des services------------------------------- -->
+
+
+
+  {% for item in all_items %}
+
+  
+  <div class="mb-2">
+
+
+    <div class="">
+
+      <div class="card" style="max-width: 45 rem; ">
+      <div class="card-body">
+      <!-- Data -->
+      <div class="d-flex mb-3">
+          <a href="/akue/profil">
+           {% if item.author.userprofile.image %}
+           {% load static %}
+             <img src="{{ item.author.userprofile.image.url }}" alt="Photo de profil de {{ user_profile.user.username }}" class="border rounded-circle me-2" style="height: 40px" />
+           {% else %}
+           <img src="{% static 'akue/img/photo_de_profile/photo_defaut.webp' %}" alt="Photo de profil par défaut" class="border rounded-circle me-2" style="height: 40px" />
+           {% endif %}
+          </a>
+          <div>
+          <a href="" class="text-dark mb-0">
+              <div><strong>{{ item.author  }}  </strong> <small>offre de {{table_nameS}}</small></div>
+          </a>
+          <a href="" class="text-muted d-block" style="margin-top: -6px">
+              <small>{{ item.temps_publication }}</small>
+          </a>
+          </div>
+      </div>
+
+      <!-- Titre du item-->
+
+      <div>
+
+        <h2></h2>
+
+      </div>
+
+      <!-- Titre de l'offre-->
+
+      <div>
+
+        <h2>{{ item.title }}</h2>
+
+
+      </div>
+
+
+      <!-- Description -->
+      <div>
+          <p>
+            {{ item.content }}
+        </p>
+      </div>
+    </div>
+    <!-- Media -->
+    <div class="bg-image hover-overlay ripple rounded-0" data-mdb-ripple-color="light">
+     {% if item.image %}
+     {% load static %}
+     <img src="{{ item.image.url }}" alt="{{ item.title }}" class="w-100"  />
+     {% else %}
+     {% endif %}
+      <a href="/akue/myProfil">
+        <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
+      </a>
+    </div>
+    <!-- Media -->
+    <!-- Interactions -->
+    <div class="card-body shadow-lg">
+      <!-- Reactions -->
+      <div class="d-flex justify-content-between mb-3">
+        {% if item.likeitem_set.exists %}
+        <div>
+          <a href="#" class="text-muted" >{{ item.likeitem_set.count }}<span class="ms-2"><i class="bi bi-heart-fill" style="color:red;"></i></span></a>
+        </div>
+        {% else %}
+        <div>
+        
+        </div>
+ 
+ 
+       {% endif %}
+ 
+       
+ 
+         <div>
+           <p  class="text-muted" data-mdb-ripple-color="dark" data-toggle="collapse" data-target="#mondiv1"> 
+             {% if service.commentairesservice.exists %}
+               {{ service.commentairesservice.count }}
+             {% endif %}
+             <span class="ms-2">
+               <i class="bi bi-chat-dots-fill" ></i>
+             </span>
+           </p>
+        </div>
+      </div>
+      <!-- Reactions -->
+ 
+      <!-- Buttons -->
+ 
+ 
+      
+      
+      <div class="d-flex mb-3 justify-content-between text-center  mb-4">
+ 
+ 
+        <form method="POST" action="{% url 'akue:like_service' service_id=service.id  %}"> 
+          {% csrf_token %}
+          {% if service.likeservice_set.exists %}
+            <button type="submit" class="btn btn-sm border-0 me-2" data-mdb-ripple-color="dark" >
+              <i class="bi bi-hand-thumbs-up-fill" style="color:#1B66F5;"></i> <span class="ms-2">J'aime</span>
+            </button>
+          {% else %}
+            <button type="submit" class="btn btn-sm border-0 me-2" data-mdb-ripple-color="dark">
+              <i class="bi bi-hand-thumbs-up-fill"></i> <span class="ms-2">J'aime</span>
+            </button>
+          {% endif %}
+        </form>
+ 
+        <button type="button" class="btn btn-sm border-0 me-2" data-mdb-ripple-color="dark" data-toggle="collapse" data-target="#mondiv">
+          <i class="bi bi-chat-dots-fill"></i> <span class="ms-2">Commenter</span>
+        </button>
+        <button type="button" class="btn btn-sm border-0 me-2" data-mdb-ripple-color="dark">
+          <i class="bi bi-share-fill"></i> <span class="ms-2">Partager</span>
+        </button>
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      <!-- Buttons -->
+ 
+      <!-- Comments -->
+ 
+      <!-- Input -->
+ 
+      <div id="mondiv" class="collapse">
+ 
+      <form method="post" action="{% url 'akue:creer_commentaireservice' service_id=service.id  %}"> 
+        {% csrf_token %}
+      <div  class="d-flex mb-3">
+        <a href="/akue/myProfil">
+         {% if user_profile.image %}
+           {% load static %}
+             <img src="{{ user_profile.image.url }}" alt="Photo de profil de " class="border rounded-circle me-2" style="height: 40px" />
+         {% else %}
+           <img src="{% static 'akue/img/photo_de_profile/photo_defaut.webp' %}" alt="Photo de profil par défaut" class="border rounded-circle me-2" style="height: 40px" />
+         {% endif %}
+        </a>
+ 
+ 
+ 
+        <div class="form-outline w-100 ">
+          <!-- <textarea class="form-control" id="contenu" name="contenu" rows="2"></textarea> -->
+ 
+          <input class="border border-info form-control" type="text" id="contenu" name="contenu" required="required" placeholder="Commenter ?">
+          
+          
+          <input type="submit" value="Publier" class="btn btn-outline-info ms-1 rounded mt-3 mb-3">
+        </div>
+ 
+ 
+      </div>
+ 
+      </form>
+ 
+      </div>
+ 
+ 
+    
+      <!-- Input -->
+ 
+      <!-- Answers -->
+ 
+ 
+ 
+ 
+ 
+      <!-- debut boucle commentaire -->
+ 
+ 
+      {% for commentaireservice in commentairesservice %}
+        {% if commentaireservice.service == service %}
+ 
+ 
+        
+ 
+        
+          
+        
+      
+ 
+      <!-- Single answer -->
+      <div id="mondiv1" class="collapse">
+      <div class="d-flex mb-3">
+        <a href="/akue/profil">
+         {% if commentaireservice.auteur.userprofile.image %}
+         {% load static %}
+           <img src="{{ commentaireservice.auteur.userprofile.image.url }}" alt="Photo de profil de {{ user_profile.user.username }}" class="border rounded-circle me-2" style="height: 40px" />
+         {% else %}
+         <img src="{% static 'akue/img/photo_de_profile/photo_defaut.webp' %}" alt="Photo de profil par défaut" class="border rounded-circle me-2" style="height: 40px" />
+         {% endif %}
+        </a>
+        <div>
+          <div class="bg-light rounded-3 px-3 py-1">
+            <a href="" class="text-dark mb-0">
+              <strong>{{ commentaireservice.auteur }} </strong>
+            </a>
+            <p class="text-muted d-block">
+              <small>{{ commentaireservice.contenu }}</small>
+            </p>
+          </div>
+         </div>
+ 
+        <div class="d-flex justify-content-between mb-3">
+ 
+            <form method="POST" action="{% url 'akue:like_commentaireservice' commentaireservice.id %}"> 
+              {% csrf_token %}
+              {% if commentaireservice.like_commentaireservice_set.exists %}
+                <button type="submit" class="btn btn-sm border-0 me-2" data-mdb-ripple-color="dark" >
+                  <span class="ms-2" style="color:#1B66F5;"><strong>J'aime</strong></span>
+                </button>
+              {% else %}
+                <button type="submit" class="btn btn-sm border-0 me-2" data-mdb-ripple-color="dark">
+                  </i> <span class="ms-2"><strong>J'aime</strong></span>
+                </button>
+              {% endif %}
+            </form>
+          
+            {% if commentaireservice.like_commentaireservice_set.exists %}
+              <div>
+                <p class="text-muted ">{{ commentaireservice.like_commentaireservice_set.count }}<span class="ms-2"><i class="bi bi-heart-fill" style="color:red;"></i></span></p>
+              </div>
+            {% endif %}
+ 
+ 
+        </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        </div>
+      </div>
+ 
+      {% endif %}
+ 
+ 
+ 
+ 
+      {% endfor %}
+ 
+ 
+      <!-- finboucle commentaire -->
+ 
+ 
+ 
+ 
+ 
+      <!-- Single answer -->
+      
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+      
+ 
+      <!-- Answers -->
+ 
+      <!-- Comments -->
+      </div>
+      <!-- Interactions -->
+ 
+    </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  </div>
+ 
+ </div>
+ 
+ {% endfor %}
+ 
+ <!-- ---------------------- fin boucle Liste des services------------------------------- -->
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ {% else %}
+ 
+ 
+ 
+ 
+ 
+ {% endif %}

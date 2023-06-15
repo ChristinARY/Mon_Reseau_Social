@@ -1,0 +1,498 @@
+{% extends 'akue/base_2.html' %}
+
+
+{% block pageTest %}
+
+{% if user.is_authenticated %}
+
+
+
+<!-- ======= profil Section ======= -->
+
+
+
+
+
+
+
+
+<section  style="background-color: #eee;">
+
+
+
+
+  <span class="custom-file">
+    <label class="custom-file-label" for="{{ widget.attrs.id }}">{{ widget.attrs.empty_label }}</label>
+    {{ widget }}
+  </span>
+
+
+
+    <div class="container py-5">
+            <div class="row">
+                <div class="col">
+                    <div class="container" data-aos="fade-up">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h3 class="section-title">Page De TEST</h3>
+            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+            <h1>Create a new service</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="{{ form.title.id_for_label }}">Title:</label>
+            {{ form.title }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.content.id_for_label }}">Content:</label>
+            {{ form.content }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.image.id_for_label }}">Image:</label>
+            {{ form.image }}
+        </div>
+        <button type="submit">Save</button>
+    </form>
+
+        
+
+
+
+
+    <h1>Services</h1>
+{% if services %}
+    <ul>
+    {% for service in services %}
+        <li>
+            <h2>{{ service.title }}</h2>
+            {% if service.image %}
+            {% load static %}
+                <img src="{{ service.image.url }}" alt="{{ service.title }}">
+            
+            {% endif %}
+            <p>{{ service.content }}</p>
+            <p>Author: {{ service.author }}</p>
+            <p>Date created: {{ service.date_creation }}</p>
+            {% if service.date_publication %}
+                <p>Date published: {{ service.date_publication }}</p>
+            {% endif %}
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No services found.</p>
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- End About Section -->
+
+
+
+    {% else %}
+
+
+    <div>
+
+    </div>
+    
+    <div>
+
+    </div>
+    <div class="container" data-aos="fade-up">
+        <div class="row">
+          <div class="col-md-12">
+            <h3 class="section-title"></h3>
+            <div ></div>
+            
+          </div>
+        </div>
+      </div>
+
+      <div>
+
+      </div>
+      
+      <div>
+
+      </div>
+      <div class="container" data-aos="fade-up">
+          <div class="row">
+            <div class="col-md-12">
+              <h3 class="section-title"></h3>
+              <div ></div>
+              
+            </div>
+          </div>
+        </div>
+
+        <div>
+
+        </div>
+        
+        <div>
+  
+        </div>
+        <div class="container" data-aos="fade-up">
+            <div class="row">
+              <div class="col-md-12">
+                <h3 class="section-title"></h3>
+                <div ></div>
+                
+              </div>
+            </div>
+          </div>
+
+    <div>
+
+    </div>
+    
+    <div>
+
+    </div>
+    <div class="container" data-aos="fade-up">
+        <div class="row">
+          <div class="col-md-12">
+            <h3 class="section-title"></h3>
+            <div ></div>
+            
+          </div>
+        </div>
+      </div>
+
+
+      <div>
+
+      </div>
+      
+      <div>
+
+      </div>
+     
+     
+      
+
+
+
+
+
+
+
+
+
+      <div class="col-md-12">
+        <h3 class="section-title">Espace IA</h3>
+        <div class="section-title-divider"></div>
+        <p class="section-description"> Vous devez vous connecter ou creer un compte pour acceder à cette page </p>
+      </div>
+
+
+
+
+
+
+
+      <div>
+
+      </div>
+      
+      <div>
+
+      </div>
+      <div class="container" data-aos="fade-up">
+          <div class="row">
+            <div class="col-md-12">
+              <h3 class="section-title"></h3>
+              <div ></div>
+              
+            </div>
+          </div>
+        </div>
+        <div class="container" data-aos="fade-up">
+          <div class="row">
+            <div class="col-md-12">
+              <h3 class="section-title"></h3>
+              <div ></div>
+              
+            </div>
+          </div>
+        </div>
+        <div class="container" data-aos="fade-up">
+          <div class="row">
+            <div class="col-md-12">
+              <h3 class="section-title"></h3>
+              <div ></div>
+              
+            </div>
+          </div>
+        </div>
+        <div class="container" data-aos="fade-up">
+          <div class="row">
+            <div class="col-md-12">
+              <h3 class="section-title"></h3>
+              <div ></div>
+              
+            </div>
+          </div>
+        </div>
+
+        <div class="container" data-aos="fade-up">
+          <div class="row">
+            <div class="col-md-12">
+              <h3 class="section-title"></h3>
+              <div ></div>
+              
+            </div>
+          </div>
+        </div>
+
+        <div class="container" data-aos="fade-up">
+          <div class="row">
+            <div class="col-md-12">
+              <h3 class="section-title"></h3>
+              <div ></div>
+              
+            </div>
+          </div>
+        </div>
+
+        <div class="container" data-aos="fade-up">
+          <div class="row">
+            <div class="col-md-12">
+              <h3 class="section-title"></h3>
+              <div ></div>
+              
+            </div>
+          </div>
+        </div>
+
+        <div class="container" data-aos="fade-up">
+          <div class="row">
+            <div class="col-md-12">
+              <h3 class="section-title"></h3>
+              <div ></div>
+              
+            </div>
+          </div>
+        </div>
+
+
+
+
+        <div>
+
+        </div>
+        
+        <div>
+
+        </div>
+        <div class="container" data-aos="fade-up">
+            <div class="row">
+              <div class="col-md-12">
+                <h3 class="section-title"></h3>
+                <div ></div>
+                
+              </div>
+            </div>
+          </div>
+          <div class="container" data-aos="fade-up">
+            <div class="row">
+              <div class="col-md-12">
+                <h3 class="section-title"></h3>
+                <div ></div>
+                
+              </div>
+            </div>
+          </div>
+          <div class="container" data-aos="fade-up">
+            <div class="row">
+              <div class="col-md-12">
+                <h3 class="section-title"></h3>
+                <div ></div>
+                
+              </div>
+            </div>
+          </div>
+          <div class="container" data-aos="fade-up">
+            <div class="row">
+              <div class="col-md-12">
+                <h3 class="section-title"></h3>
+                <div ></div>
+                
+              </div>
+            </div>
+          </div>
+
+          <div class="container" data-aos="fade-up">
+            <div class="row">
+              <div class="col-md-12">
+                <h3 class="section-title"></h3>
+                <div ></div>
+                
+              </div>
+            </div>
+          </div>
+
+          <div class="container" data-aos="fade-up">
+            <div class="row">
+              <div class="col-md-12">
+                <h3 class="section-title"></h3>
+                <div ></div>
+                
+              </div>
+            </div>
+          </div>
+
+          <div class="container" data-aos="fade-up">
+            <div class="row">
+              <div class="col-md-12">
+                <h3 class="section-title"></h3>
+                <div ></div>
+                
+              </div>
+            </div>
+          </div>
+
+          <div class="container" data-aos="fade-up">
+            <div class="row">
+              <div class="col-md-12">
+                <h3 class="section-title"></h3>
+                <div ></div>
+                
+              </div>
+            </div>
+          </div>
+
+
+
+
+          <div>
+
+          </div>
+          
+          <div>
+
+          </div>
+          <div class="container" data-aos="fade-up">
+              <div class="row">
+                <div class="col-md-12">
+                  <h3 class="section-title"></h3>
+                  <div ></div>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="container" data-aos="fade-up">
+              <div class="row">
+                <div class="col-md-12">
+                  <h3 class="section-title"></h3>
+                  <div ></div>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="container" data-aos="fade-up">
+              <div class="row">
+                <div class="col-md-12">
+                  <h3 class="section-title"></h3>
+                  <div ></div>
+                  
+                </div>
+              </div>
+            </div>
+            <div class="container" data-aos="fade-up">
+              <div class="row">
+                <div class="col-md-12">
+                  <h3 class="section-title"></h3>
+                  <div ></div>
+                  
+                </div>
+              </div>
+            </div>
+
+          
+          
+
+           
+
+
+            <div>
+
+            </div>
+            
+            <div>
+
+          
+
+
+
+
+
+    {% endif %}
+
+
+{% endblock %}
+
+

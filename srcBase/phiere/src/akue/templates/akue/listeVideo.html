@@ -1,0 +1,494 @@
+{% extends 'akue/base_2.html' %}
+
+
+{% block listvideo %}
+
+{% if user.is_authenticated %}
+
+
+
+
+
+<div>
+  <div>
+    <section >
+
+      <div style="background-color: #F0F2F5; "  class="container-fluid ">
+        <div class="row d-flex mb-3  ">
+          <!-- Colonne pour la barre de navigation -->
+          <div class="sidebar d-flex " >
+  
+            <!-- ======= Insertion de la Navigation latérale ======= -->
+
+          {% include 'akue/navLateral.html' %}
+  
+  
+  
+  
+            <div class=" col-md-10 pr-0 pl-0">
+            <!--<div class=" col-md-10 pr-0 pl-0">-->
+              <div class="row d-flex justify-content-center">
+      
+      
+                <div class="col-md-7 align-items-center justify-content-center mt-1" >
+                  <div class=" justify-content-center" style="overflow:scroll; height:600px;" >
+                    
+
+
+
+<!---------------------------------------------- debut Block Video------------------------------------------------------------------------------------------------------------------------------------->
+<div class="card mb-2 shadow-lg">
+  <div class="card-body text-center">
+
+
+
+    {% include 'akue/creerPost.html' %}
+  
+
+  </div>
+</div>
+
+
+
+
+{% if videos %}
+
+
+
+
+
+
+
+
+
+
+
+
+ <!-- ---------------------- Debut boucle Liste des videos------------------------------- -->
+
+
+
+
+ {% for video in videos %}
+            
+
+
+
+
+ <div class="mb-2">
+
+
+
+
+   <div class="">
+
+     <div class="card" style="max-width: 45 rem; ">
+     <div class="card-body">
+     <!-- Data -->
+     <div class="d-flex mb-3 justify-content-between">
+      <div style="display: flex; align-items: center;">
+         <a href="/akue/profil">
+          {% if video.author.userprofile.image %}
+          {% load static %}
+            <img src="{{ video.author.userprofile.image.url }}" alt="Photo de profil de {{ user_profile.user.username }}" class="border rounded-circle me-2" style="height: 40px" />
+          {% else %}
+          <img src="{% static 'akue/img/photo_de_profile/photo_defaut.webp' %}" alt="Photo de profil par défaut" class="border rounded-circle me-2" style="height: 40px" />
+          {% endif %}
+         </a>
+         <div>
+         <a href="" class="text-dark mb-0">
+            <div><strong>{{ video.author }} </strong><small>a publié cette {{table_nameV}} </small></div>
+         </a>
+         <a href="" class="text-muted d-block" style="margin-top: -6px">
+             <small>{{ video.temps_publication }}</small>
+         </a>
+         </div>
+     </div>
+
+     <!---------------------------------------------------------------------------------------------3 points pour menu ----------------------------------------------------------------------------------------------->
+     <div class="">
+      <a href="#" data-toggle="dropdown" class="nav-item nav-link  user-action rounded">
+        <img class="ml-1 mr-1" src="{% static 'akue/img/icon/3points.png' %}" alt="" class="border-0 me-2" style="height: 20px" />
+      </a>  
+      <div class="dropdown-menu">
+        <a href="" class="dropdown-item nav-item"><i class="bi bi-pencil-fill"></i><span>Modifier</span></a>
+        <a href="" class="dropdown-item nav-item"><i class="bi bi-trash-fill"></i><span>Supprimer</span></a>
+        <a href="" class="dropdown-item nav-item"><i class="bi bi-gear-fill"></i><span>Paramètre</span></a>
+      </div>
+    </div>
+    <!---------------------------------------------------------------------------------------------3 points pour menu ----------------------------------------------------------------------------------------------->
+  </div>
+  
+     <!-- Titre de la video-->
+
+     <div>
+
+        <h2>{{ video.title }}</h2>
+
+
+     </div>
+
+
+     <!-- Description -->
+     <div>
+         <p>
+           {{ video.content }}
+       </p>
+     </div>
+   </div>
+   <!-- Media -->
+   <div class="bg-image hover-overlay ripple rounded-0" data-mdb-ripple-color="light">
+    {% if video.video %}
+    {% load static %}
+    <video controls class="w-100">
+     {% load static %}
+     {% if video.video %}
+       <source src="{{ video.video.url }}" type="video/mp4">
+       <source src="{{ video.video.url }}" type="video/webm">
+       <source src="{{ video.video.url }}" type="video/ogg">
+       <!-- Add more <source> tags for other video formats if needed -->
+     {% endif %}
+     Votre navigateur ne supporte pas la lecture de vidéos HTML5.
+   </video>
+   
+    {% else %}
+    {% endif %}
+     <a href="/akue/myProfil">
+       <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
+     </a>
+   </div>
+   <!-- Media -->
+   <!-- Interactions -->
+   <div class="card-body shadow-lg">
+     <!-- Reactions -->
+     <div class="d-flex justify-content-between mb-3">
+       {% if video.likevideo_set.exists %}
+       <div>
+         <a href="#" class="text-muted">{{ video.likevideo_set.count }}<span class="ms-2"><i class="bi bi-heart-fill" style="color:red;"></i></span></a>
+       </div>
+       {% else %}
+       <div>
+       
+       </div>
+
+
+      {% endif %}
+
+      
+
+        <div>
+          <p class="text-muted" data-mdb-ripple-color="dark" data-toggle="collapse" data-target="#mondiv1-{{ video.id }}"> 
+            {% if video.commentairesvideo.exists %}
+              {{ video.commentairesvideo.count }}
+            {% endif %}
+            <span class="ms-2">
+              <i class="bi bi-chat-dots-fill" ></i>
+            </span>
+        </p>
+       </div>
+     </div>
+     <!-- Reactions -->
+
+     <!-- Buttons -->
+<!-------------------------------------------------------------------ligne separateur haute------------------------------------------------------------------------------->
+
+<div class="border-bottom mb-4" > </div>
+
+<!-------------------------------------------------------------------ligne separateur haute------------------------------------------------------------------------------->
+
+     
+     
+     <div class="d-flex mb-3 justify-content-between text-center  mb-4">
+
+
+       <form method="POST" action="{% url 'akue:like_video' video_id=video.id  %}"> 
+         {% csrf_token %}
+         {% if video.likevideo_set.exists %}
+           <button type="submit" class="btn btn-sm border-0 me-2 nav-link" data-mdb-ripple-color="dark" >
+             <i class="bi bi-hand-thumbs-up-fill" style="color:#1B66F5;"></i> <span class="ms-2">J'aime</span>
+           </button>
+         {% else %}
+           <button type="submit" class="btn btn-sm border-0 me-2 nav-link" data-mdb-ripple-color="dark">
+             <i class="bi bi-hand-thumbs-up-fill"></i> <span class="ms-2">J'aime</span>
+           </button>
+         {% endif %}
+       </form>
+
+       <button type="button" class="btn btn-sm border-0 me-2 nav-link" data-mdb-ripple-color="dark" data-toggle="collapse" data-target="#mondiv-{{ video.id }}">
+         <i class="bi bi-chat-dots-fill"></i> <span class="ms-2">Commenter</span>
+       </button>
+       <button type="button" class="btn btn-sm border-0 me-2 nav-link" data-mdb-ripple-color="dark">
+         <i class="bi bi-share-fill"></i> <span class="ms-2">Partager</span>
+       </button>
+     </div>
+     
+     
+     
+     
+     
+     
+     
+     <!-- Buttons -->
+
+     <!-- Comments -->
+
+     <!-- Input -->
+
+     <div id="mondiv-{{ video.id }}" class="collapse">
+
+     <form method="post" action="{% url 'akue:creer_commentairevideo' video_id=video.id  %}"> 
+       {% csrf_token %}
+     <div  class="d-flex mb-3">
+       <a href="/akue/myProfil">
+        {% if user_profile.image %}
+          {% load static %}
+            <img src="{{ user_profile.image.url }}" alt="Photo de profil de " class="border rounded-circle me-2" style="height: 40px" />
+        {% else %}
+          <img src="{% static 'akue/img/photo_de_profile/photo_defaut.webp' %}" alt="Photo de profil par défaut" class="border rounded-circle me-2" style="height: 40px" />
+        {% endif %}
+       </a>
+
+
+
+       <div class="form-outline w-100 ">
+         <!-- <textarea class="form-control" id="contenu" name="contenu" rows="2"></textarea> -->
+
+         <input class="border border-info form-control" type="text" id="contenu" name="contenu" required="required" placeholder="Commenter ?">
+         
+         
+         <input type="submit" value="Publier" class="btn btn-outline-info ms-1 rounded mt-3 mb-3">
+       </div>
+
+
+     </div>
+
+     </form>
+
+     </div>
+
+
+   
+     <!-- Input -->
+
+     <!-- Answers -->
+
+    <!-------------------------------------------------------------------ligne separateur basse ------------------------------------------------------------------------------->
+    <div class="border-top mb-3 mt-0 " > </div>
+
+
+    <!-------------------------------------------------------------------ligne separateur basse------------------------------------------------------------------------------->
+
+
+
+     <!-- debut boucle commentaire -->
+
+
+     {% for commentairevideo in commentairesvideo %}
+       {% if commentairevideo.video == video %}
+
+
+       
+
+       
+         
+       
+     
+
+     <!-- Single answer -->
+     <div id="mondiv1-{{ video.id }}" class="collapse">
+     <div class="d-flex mb-3">
+       <a href="/akue/profil">
+        {% if commentairevideo.auteur.userprofile.image %}
+        {% load static %}
+          <img src="{{ commentairevideo.auteur.userprofile.image.url }}" alt="Photo de profil de {{ user_profile.user.username }}" class="border rounded-circle me-2" style="height: 40px" />
+        {% else %}
+        <img src="{% static 'akue/img/photo_de_profile/photo_defaut.webp' %}" alt="Photo de profil par défaut" class="border rounded-circle me-2" style="height: 40px" />
+        {% endif %}
+       </a>
+       <div>
+         <div class="bg-light rounded-3 px-3 py-1">
+           <a href="" class="text-dark mb-0">
+             <strong>{{ commentairevideo.auteur }} </strong>
+           </a>
+           <p class="text-muted d-block">
+             <small>{{ commentairevideo.contenu }}</small>
+           </p>
+         </div>
+        </div>
+
+       <div class="d-flex justify-content-between mb-3">
+
+           <form method="POST" action="{% url 'akue:like_commentairevideo' commentairevideo.id %}"> 
+             {% csrf_token %}
+             {% if commentairevideo.like_commentairevideo_set.exists %}
+               <button type="submit" class="btn btn-sm border-0 me-2" data-mdb-ripple-color="dark" >
+                 <span class="ms-2" style="color:#1B66F5;"><strong>J'aime</strong></span>
+               </button>
+             {% else %}
+               <button type="submit" class="btn btn-sm border-0 me-2" data-mdb-ripple-color="dark">
+                 </i> <span class="ms-2"><strong>J'aime</strong></span>
+               </button>
+             {% endif %}
+           </form>
+         
+           {% if commentairevideo.like_commentairevideo_set.exists %}
+             <div>
+               <p class="text-muted ">{{ commentairevideo.like_commentairevideoset.count }}<span class="ms-2"><i class="bi bi-heart-fill" style="color:red;"></i></span></p>
+             </div>
+           {% endif %}
+
+
+       </div>
+
+
+
+
+
+
+
+       </div>
+     </div>
+
+     {% endif %}
+
+
+
+
+     {% endfor %}
+
+
+     <!-- finboucle commentaire -->
+
+
+
+
+
+     <!-- Single answer -->
+     
+
+
+
+
+
+
+
+     
+
+     <!-- Answers -->
+
+     <!-- Comments -->
+     </div>
+     <!-- Interactions -->
+
+   </div>
+
+
+
+
+
+
+
+
+ </div>
+
+</div>
+
+{% endfor %}
+
+<!-- ---------------------- fin boucle Liste des videos------------------------------- -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% else %}
+
+
+<!---------------------------------------------------------------Pas de videos------------------------------------------------------->
+
+
+
+
+<div class=" justify-content-center" style="overflow:scroll; height:600px;" >
+  <div class="card mb-2 shadow-lg">
+    <div class="card-body text-center">
+
+
+
+      <div>
+
+        <h2> Désolé, Personne n'est disponible pour proposer ses videos </h2>
+
+
+     </div>
+    
+
+    </div>
+  </div>
+</div>
+
+
+
+
+<!---------------------------------------------------------------Pas de videos------------------------------------------------------->
+
+
+
+
+{% endif %}
+
+
+
+<!-----------------------------------------------Fin bloc Video---------------------------------------------------------------------------------------------------------------------------------------->
+                      
+                
+                      
+                  </div>
+                </div>
+      
+              </div>
+      
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    </section>
+    <!--Section: Newsfeed-->
+  </div>
+
+</div>
+
+
+
+<!-- End listvideo Section -->
+
+
+{% else %}
+
+
+{% endif %}
+
+
+
+{% endblock %}

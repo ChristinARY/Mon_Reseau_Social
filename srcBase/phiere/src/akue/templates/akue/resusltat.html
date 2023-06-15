@@ -1,0 +1,55 @@
+{% extends 'akue/base_2.html' %}
+
+
+{% block game %}
+
+
+<h1>JEUX TOMBOLA!</h1>
+<h3>Faire une Proposition de chiffre</h3>
+  {% if message %}
+    <p>{{ message }}</p>
+  {% endif %}
+  <form action="{% url 'akue:game' %}" method="post">
+    {% csrf_token %}
+    <label for="guess">Proposition:</label>
+    <input type="text" name="guess" id="guess">
+    <input type="submit" value="Valider" >
+  </form>
+  <h1></h1>
+  <h1></h1>
+  <h1></h1>
+  <h1></h1>
+  <h1></h1>
+  <h1></h1>
+  <h1></h1>
+  <h1></h1>
+  <h1></h1>
+  <h1></h1>
+  <h1></h1>
+  <h1></h1>
+  <h1></h1>
+  <h1></h1>
+  <h1></h1>
+  <h1></h1>
+  <h1></h1>
+  <h1></h1>
+  <h1></h1>
+  <h1></h1>
+  <h1></h1>
+  <h1></h1>
+  <h1></h1>
+  <h1></h1>
+  <h1></h1>
+  <h1></h1>
+  <h1></h1>
+  <h1></h1>
+  <h1></h1>
+  <h1></h1>
+  <h1></h1>
+  <h1></h1>
+  <h1></h1>
+  <h1></h1>
+  <h1></h1>
+  <h1></h1>
+
+{% endblock %}

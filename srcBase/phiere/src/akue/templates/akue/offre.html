@@ -1,0 +1,51 @@
+
+
+
+
+
+
+  <div class="form-outline">
+    <div class="nav-link btn btn-sm border-0 me-2 " data-mdb-ripple-color="dark" data-toggle="modal" data-target="#offreForme">
+      {% load static %}
+      <img src="{% static 'akue/img/icon/offres.png' %}" alt="" class="border-0 rounded-circle me-2" style="height: 30px" /><!--<i class="bi bi-briefcase-fill" style="color:red;"></i>--><span class=" d-none d-md-inline-block">Offre-d'emploi</span>
+    </div>
+    <form method="post" action="{% url 'akue:creer_offre' %}"  enctype="multipart/form-data">
+      {% csrf_token %}
+      <!-- Modal -->
+      <div class="modal fade" id="offreForme" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Publier vos Offres</h5>
+              <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>-->
+            </div>
+          <div class="modal-body">
+          
+            <div >
+              <div class="form-group">
+                <label class="modal-title" for="{{ form.title.id_for_label }}">Titre:</label><br>
+                {{ form.title }}
+              </div>
+              <div class="form-group">
+                <label class="modal-title"  for="{{ form.content.id_for_label }}">Description de l'offre proposé:</label>
+                {{ form.content }}
+              </div>
+              <div  class="form-group">
+                <label class="modal-title"  for="{{ form.image.id_for_label }}">Image:</label>
+                {{ form.image }}
+              </div>
+            </div>
+            
+          </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                <button type="submit" class="btn btn-info">Publier</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </form>
+  </div>

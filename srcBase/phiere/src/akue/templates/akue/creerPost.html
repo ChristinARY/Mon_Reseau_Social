@@ -1,0 +1,26 @@
+<div class="d-flex mb-3">
+    <a href="/akue/myProfil">
+      {% if user_profile.image %}
+      {% load static %}
+      <img src="{{ user_profile.image.url }}" alt="Photo de profil de " class="border rounded-circle me-2" style="height: 40px" />
+      {% else %}
+      <img src="{% static 'akue/img/photo_de_profile/photo_defaut.webp' %}" alt="Photo de profil par défaut" class="border rounded-circle me-2" style="height: 40px" />
+      {% endif %}
+    </a>
+
+
+    <div class="form-outline w-100">
+      {% include 'akue/publication.html' %}
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+
+      </div>
+
+    </div>
+</div>
+<div class="d-flex mb-3 justify-content-between text-center align-items-center mb-4">
+
+    {% include 'akue/service.html' %}
+    {% include 'akue/video.html' %}
+    {% include 'akue/offre.html' %}
+
+</div>

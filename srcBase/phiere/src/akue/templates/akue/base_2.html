@@ -1,0 +1,444 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+
+
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>AGK & Co</title>
+  {% load static %}
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Facebook Opengraph integration: https://developers.facebook.com/docs/sharing/opengraph -->
+  <meta property="og:title" content="">
+  <meta property="og:image" content="">
+  <meta property="og:url" content="">
+  <meta property="og:site_name" content="">
+  <meta property="og:description" content="">
+
+  <!-- Twitter Cards integration: https://dev.twitter.com/cards/  -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="">
+  <meta name="twitter:title" content="">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:image" content="">
+
+  <!-- Favicons 
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  -->
+
+
+  <!-- Favicons -->
+
+  <link rel="shortcut icon" type="image/x-icon" href="{% static 'akue/img/favicon.png' %}">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-/xQLrEVdJrTqfytky9SDgqNkZKLrxMWL7l97ZwvBZlGxsbOen+VtVMGLyjk9Xf7uJd8nkn7+uNYwJiZ7VxjmFg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- emoji -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/emoji-picker-element@3.0.0/dist/emoji-picker-element.css" integrity="sha384-AZgGv4aXIt32vssWjSSoEExRo/S2DGoLbyuBhE8AdKIKhqh0bHvVKadPYG0YyRWa" crossorigin="anonymous">
+
+
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+
+
+
+  <!-- Vendor CSS Files -->
+
+  <link rel= "stylesheet" type= "text/css" href="{% static 'akue/vendor/aos/aos.css' %}" >
+  
+  <link rel= "stylesheet" type= "text/css" href="{% static 'akue/vendor/bootstrap/css/bootstrap.min.css' %}" > 
+  
+  <link rel= "stylesheet" type= "text/css" href="{% static 'akue/vendor/bootstrap-icons/bootstrap-icons.css' %}" >
+  
+  <link rel= "stylesheet" type= "text/css" href="{% static 'akue/vendor/glightbox/css/glightbox.min.css' %}" >
+  
+  <link rel= "stylesheet" type= "text/css" href="{% static 'akue/vendor/swiper/swiper-bundle.min.css' %}" >
+
+
+  <!-- Template Main CSS File -->
+
+
+<!-- ------------------------------------------------------------------------------------------
+  <link rel= "stylesheet" type= "text/css" href="{% static 'akue/css/style.css' %}" >
+
+-------------------------------------------------------------------------------------------- -->
+
+
+
+  
+
+
+  <!-- Vendor CSS Files 
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+-->
+
+  <!-- Template Main CSS File 
+  <link href="assets/css/style.css" rel="stylesheet">
+    -->
+
+  <!-- =======================================================
+  * Template Name: Imperial
+  * Updated: Mar 09 2023 with Bootstrap v5.2.3
+  * Template URL: https://bootstrapmade.com/imperial-free-onepage-bootstrap-theme/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+
+
+
+
+  
+  <style>
+    .nav-link2:hover {
+      background-color:  #f4faff;
+  }
+    .nav-link:hover {
+      background-color: #DEE0E3;
+  }
+    
+    .navbar img,
+    .navbar .navbar-brand i,
+    .navbar .nav-item i,
+    .navbar .dropdown-item i,
+    .navbar .dropdown-item .material-icons {
+      color: #505050;
+    }
+    
+    .navbar .navbar-brand,
+    .navbar .navbar-nav > a,
+    .navbar .dropdown-menu a,
+    .navbar .navbar-nav .active a {
+      color:  #505050 !important;
+    }
+    a,
+    a,a:hover {
+  text-decoration: none;
+}
+    body {
+      background: #FFFFFF;
+      font-family: 'Varela Round', sans-serif;
+    }
+
+    .navbar {
+      color: #fff;
+      background: white /*#3B5998*/ !important;
+      padding: 5px 16px;
+      border-radius: 0;
+      border: none;
+      box-shadow: 0 0 4px rgba(0,0,0,.1);
+      width: 100%;
+    }
+    .navbar img {
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      margin-right: 10px;
+    }
+    .navbar .navbar-brand {
+      color: #efe5ff;
+      padding-left: 0;
+      padding-right: 50px;
+      font-size: 24px;		
+    }
+    .navbar .navbar-brand:hover, .navbar .navbar-brand:focus {
+      color: #fff;
+    }
+    .navbar .navbar-brand i {
+      font-size: 25px;
+      margin-right: 5px;
+    }
+    .search-box {
+      position: relative;
+    }	
+    .search-box input {
+      padding-right: 35px;
+      min-height: 38px;
+      border: none;
+      background: #faf7fd;
+      border-radius: 3px !important;
+    }
+    .search-box input:focus {		
+      background: #fff;
+      box-shadow: none;
+    }
+    .search-box .input-group-addon {
+      min-width: 35px;
+      border: none;
+      background: transparent;
+      position: absolute;
+      right: 0;
+      z-index: 9;
+      padding: 10px 7px;
+      height: 100%;
+    }
+    .search-box i {
+      color: #a0a5b1;
+      font-size: 19px;
+    }
+    .navbar .nav-item i {
+      font-size: 18px;
+    }
+    .navbar .nav-item span {
+      position: relative;
+      top: 3px;
+    }
+    .navbar .navbar-nav > a {
+      color: #efe5ff;
+      padding: 8px 15px;
+      font-size: 14px;		
+    }
+    .navbar .navbar-nav > a:hover, .navbar .navbar-nav > a:focus {
+      color: #fff;
+      text-shadow: 0 0 4px rgba(255,255,255,0.3);
+    }
+    .navbar .navbar-nav > a > i {
+      display: block;
+      text-align: center;
+    }
+    .navbar .dropdown-item i {
+      font-size: 16px;
+      min-width: 22px;
+    }
+    .navbar .dropdown-item .material-icons {
+      font-size: 21px;
+      line-height: 16px;
+      vertical-align: middle;
+      margin-top: -2px;
+    }
+    .navbar .nav-item.open > a, .navbar .nav-item.open > a:hover, .navbar .nav-item.open > a:focus {
+      color: #fff;
+      background: none !important;
+    }
+    .navbar .dropdown-menu {
+      border-radius: 1px;
+      border-color: #e5e5e5;
+      box-shadow: 0 2px 8px rgba(0,0,0,.05);
+    }
+    .navbar .dropdown-menu a {
+      color: #777 !important;
+      padding: 8px 20px;
+      line-height: normal;
+      font-size: 15px;
+    }
+    .navbar .dropdown-menu a:hover, .navbar .dropdown-menu a:focus {
+      color: #333 !important;
+      background: transparent !important;
+    }
+    .navbar .navbar-nav .active a, .navbar .navbar-nav .active a:hover, .navbar .navbar-nav .active a:focus {
+      color: #fff;
+      text-shadow: 0 0 4px rgba(255,255,255,0.2);
+      background: transparent !important;
+    }
+    .navbar .navbar-nav .user-action {
+      padding: 9px 15px;
+      font-size: 15px;
+    }
+    .navbar .navbar-toggle {
+      border-color: #fff;
+    }
+    .navbar .navbar-toggle .icon-bar {
+      background: #fff;
+    }
+    .navbar .navbar-toggle:focus, .navbar .navbar-toggle:hover {
+      background: transparent;
+    }
+    .navbar .navbar-nav .open .dropdown-menu {
+      background: #faf7fd;
+      border-radius: 1px;
+      border-color: #faf7fd;
+      box-shadow: 0 2px 8px rgba(0,0,0,.05);
+    }
+    .navbar .divider {
+      background-color: #e9ecef !important;
+    }
+    @media (min-width: 1200px){
+      .form-inline .input-group {
+        width: 350px;
+        margin-left: 30px;
+      }
+    }
+    @media (max-width: 1199em){
+      .navbar .navbar-nav > a > i {
+        display: inline-block;			
+        text-align: left;
+        min-width: 30px;
+        position: relative;
+        top: 4px;
+      }
+      .navbar .navbar-collapse {
+        border: none;
+        box-shadow: none;
+        padding: 0;
+      }
+      .navbar .navbar-form {
+        border: none;			
+        display: block;
+        margin: 10px 0;
+        padding: 0;
+      }
+      .navbar .navbar-nav {
+        margin: 8px 0;
+      }
+      .navbar .navbar-toggle {
+        margin-right: 0;
+      }
+      .input-group {
+        width: 100%;
+      }
+    }
+
+    .fa {
+      font-size: 20px;
+    }
+    </style> 
+
+</head>
+
+<body>
+
+
+  
+  
+
+  <!--      -->
+
+
+
+  {% include 'akue/head.html' %}
+
+
+  {% block pageTest %} {% endblock %} 
+
+
+
+  {% block jeux %} {% endblock %}
+
+  {% block game %} {% endblock %}
+
+  {% block connexion %} {% endblock %}
+
+  {% block enregistrement %} {% endblock %} 
+  {% block myProfil %} {% endblock %} 
+  {% block profil %} {% endblock %} 
+  {% block acceuil %} {% endblock %} 
+  {% block allservices %} {% endblock %}
+  {% block alloffres %} {% endblock %} 
+  {% block chatBot %} {% endblock %} 
+  {% block devinettes %} {% endblock %} 
+  {% block conseil %} {% endblock %} 
+  {% block citations %} {% endblock %} 
+  {% block blagues %} {% endblock %} 
+  {% block listIa %} {% endblock %} 
+  {% block listvideo %} {% endblock %} 
+  
+
+
+
+
+
+
+
+
+  
+  <!--{% include 'akue/foot.html' %}-->
+
+  <!--<div id="preloader"></div>-->
+  <!-- <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>-->
+
+
+  <!--  <link rel= "stylesheet" type= "text/css" href="{% static 'akue/css/style.css' %}" >  -->
+
+
+
+  <!-- Vendor JS Files -->
+
+  <script src="{% static 'akue/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'akue/vendor/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script> 
+  <script src="{% static 'akue/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'akue/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'akue/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'akue/vendor/typed.js/typed.min.js' %}"></script>
+  <script src="{% static 'akue/vendor/php-email-form/validate.js' %}"></script>
+
+
+
+<!--
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.6/dist/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+-->
+
+
+
+  <!-- Template Main JS File -->
+
+  <!-- <script src="{% static 'akue/js/main.js' %}"></script>-->
+
+
+
+
+  <!-- Vendor JS Files 
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/typed.js/typed.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  -->
+
+
+  <!-- Template Main JS File 
+  <script src="assets/js/main.js"></script>
+  -->
+
+</body>
+
+</html>

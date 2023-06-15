@@ -1,0 +1,29 @@
+{% extends 'akue/base2.html' %}
+
+{% block hero %}
+
+<!-- ======= Hero Section ======= -->
+<section id="hero">
+  <div class="hero-container">
+    <div data-aos="fade-in">
+      <div class="hero-logo">
+        {% load static %} 
+        <a href="/" class="logo mr-auto"><img class="img-responsive" src="{% static 'akue/img/logo.png' %}"  alt="AGK & Co"/></a>
+      </div>
+
+      <h2>{{ d }} </br> Il est {{ h }}  et deja 100 gagnant</h2>
+      <h2>qui ont remporter <span class="typed" data-typed-items="de l'argent , des cadeaux , des lots en nature"></span></h2>
+      <div class="actions">
+        <a href="#services" class="btn-get-started">Participer</a>
+        <a href="#about" class="btn-services">Comment Jouer ?</a>
+      </div>
+    </div>
+  </div>
+</section><!-- End Hero -->
+
+
+{% include 'akue/head.html' %}
+{% include 'akue/main.html' %}
+
+{% endblock %}
+
